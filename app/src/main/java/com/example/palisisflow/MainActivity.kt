@@ -43,6 +43,7 @@ private const val REQUEST_ENABLE_BT = 2
 class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var settingBtn: Button
+    private lateinit var showApis: Button
     private lateinit var registerBtn: Button
     private lateinit var showPrintersBtn: Button
     private lateinit var showDialogBtn: Button
@@ -100,6 +101,7 @@ class MainActivity : ComponentActivity() {
         showPrintersBtn = binding.showPrinters
         showDialogBtn = binding.showDialogBox
         showMyListBtn = binding.showMyList
+        showApis = binding.doApiCallsBtn
 
         binding.registeredName.text = "No user registered"
 
@@ -108,6 +110,11 @@ class MainActivity : ComponentActivity() {
             val intent = Intent(this, SettingsActivity::class.java)
 //            startActivityForResult(intent, 100)
             resultLauncher.launch(intent)
+        }
+
+        showApis.setOnClickListener {
+            val intent = Intent(this, ProgressBarActivity::class.java)
+            startActivity(intent)
         }
 
         showMyListBtn.setOnClickListener {
