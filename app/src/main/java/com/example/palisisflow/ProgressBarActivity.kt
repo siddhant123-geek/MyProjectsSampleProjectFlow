@@ -46,6 +46,7 @@ class ProgressBarActivity: AppCompatActivity() {
                         binding.progressText.text = "$percentage %"
                         if(percentage.equals(100.0)) {
                             binding.progressText.text = "All Api calls are done"
+                            binding.myProgressBar.visibility = View.GONE
                             this.cancel()
                         }
                     }
