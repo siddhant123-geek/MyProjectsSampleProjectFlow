@@ -13,6 +13,7 @@ import com.palisisag.pitapp.databinding.ActivityRegisterBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 class ProgressBarActivity: AppCompatActivity() {
@@ -34,11 +35,12 @@ class ProgressBarActivity: AppCompatActivity() {
         progressBarViewModel = ProgressBarActivityViewModel()
 
         progressText = binding.progressText
-        lifecycleScope.launch {
+        val job = lifecycleScope.launch {
             isApiCallStarted = true
             progressBarViewModel.uiState.collect {
                 when(it) {
                     is UiState.Success -> {
+                        Log.d("###", "onCreate: " + this.isActive)
                         binding.progressText.visibility = View.VISIBLE
                         Log.d("###", "onCreate: Coming to success case and the it " + it.data)
                         val percentage = (it.data / 10.0) * 100.0
@@ -48,6 +50,7 @@ class ProgressBarActivity: AppCompatActivity() {
                             binding.progressText.text = "All Api calls are done"
                             binding.myProgressBar.visibility = View.GONE
                             this.cancel()
+                            Log.d("###", "onCreate: " + this.isActive)
                         }
                     }
                     is UiState.Loading -> {
@@ -61,5 +64,6 @@ class ProgressBarActivity: AppCompatActivity() {
             }
 
         }
+        Log.d("###", "onCreate: job " + job.isActive)
     }
 }
