@@ -125,4 +125,13 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
+
+    // Tiny logging
+    implementation("org.tinylog:tinylog-api-kotlin:2.7.0")
+    implementation("org.tinylog:tinylog-impl:2.7.0")
+    implementation("org.tinylog:tinylog1.3-api:2.7.0")
+    implementation("org.tinylog:tinylog-api:2.7.0")
+//    implementation ("org.tinylog:tinylog-api:2.7.0-RC3")
+//    implementation ("org.tinylog:tinylog-impl:2.7.0-RC3")
+//    runtimeOnly ("org.tinylog:tinylog-impl:2.7.0")
 }
