@@ -59,6 +59,10 @@
             android:name="com.example.palisisflow.MyListActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name="com.example.palisisflow.LoginActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

@@ -6,4 +6,6 @@ interface UiState<out T> {
     data class Error(val message: String) : UiState<Nothing>
 
     object Loading : UiState<Nothing>
+
+    object Empty: UiState<Nothing>
 }

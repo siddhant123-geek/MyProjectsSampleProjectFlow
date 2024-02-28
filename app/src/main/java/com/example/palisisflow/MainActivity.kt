@@ -66,6 +66,7 @@ class MainActivity : ComponentActivity() {
     private lateinit var showDialogBtn: Button
     private lateinit var showMyListBtn: Button
     private lateinit var bluetoothAdapter: BluetoothAdapter
+    private lateinit var showLoginPage: Button
     private val deviceList = arrayListOf<BluetoothDevice>()
 
     private val REQ_CODE_FOR_R_AND_BELOW = 1200
@@ -143,6 +144,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
+        showLoginPage = binding.goToLoginPage
         configureTinyLog()
 
 //        if (!isPermissionsGranted()) {
@@ -281,6 +283,11 @@ class MainActivity : ComponentActivity() {
             }
 
             listDialog.show()
+        }
+
+        showLoginPage.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
 //        showPrintersBtn.setOnClickListener {
